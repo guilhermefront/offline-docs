@@ -1,50 +1,26 @@
 <p align="center">
-<img src="https://i.ibb.co/1L412ms/Peek-2023-03-01-23-15.gif" alt="Gif demo" />
+<video src="https://user-images.githubusercontent.com/49620737/228107570-7831acbf-2001-4b25-8e26-bc65f89de30a.mp4" alt="Gif demo" />
 </p>
 <h2 align="center">
-  📰 <a href="https://betteraim.herokuapp.com">Reddit Upvote Predictor</a> 📰
+  📰 <a>Cover letter generator</a> 📰
 </h2>
 <h3 align="center"> 
-  Enter a reddit post URL and a comment to get the chance of it being upvoted.
+ Fill out the form with your known info and let AI generate a cover letter for you based on the data of you and the company you're applying for.
 </h3>
 
 <p align="center">
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/guilhermefront/article-analyzer">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/guilhermefront/article-analyzer">
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/guilhermefront/cover-letter-writer">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/guilhermefront/cover-letter-writer">
 <img alt="Flask" src="https://img.shields.io/badge/flask-%23092E20.svg?style=flat&logo=flask&logoColor=white">
 <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/guilhermefront/article-analyzer">
-<img alt="GitHub" src="https://img.shields.io/github/license/guilhermefront/article-analyzer">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/guilhermefront/cover-letter-writer">
+<img alt="GitHub" src="https://img.shields.io/github/license/guilhermefront/cover-letter-writer">
 </p>
 
 <br>
 
 ---
 
-## 📌 Table of contents
-
-<!--ts-->
-
-- [About](#About)
-- [Table of contents](#tabela-de-conteudo)
-- [Installation](#instalacao)
-- [Tech Stack](#Tech-Stack)
-<!--te-->
-
----
-
-## 🖥 About
-
-BetterAim is an aim game for FPS players. It's intended to solve one crucial user demand: the ability to customize their experience. Only gamers themselves understand the weakness that need to be trained, so with BetterAim players can change their own game to fit their needs and extract the most productive training to improve.
-
----
-
-## 🕹 Features
-
-- [x] Get the title and content of a reddit post using the Reddit API
-- [x] Use a pre trained model (DialogRPT) to analyze the chance of upvotes based on the comment on a post
-
----
 
 ## 🛠 Tech Stack
 
