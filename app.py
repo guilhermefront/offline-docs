@@ -1,48 +1,51 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, render_template
 import os
+from github import Github
+from datetime import datetime, timedelta
 import openai
-
-openai.api_key = os.getenv("OPENAI_API_KEY")
+import requests
+import base64
 
 app = Flask(__name__)
+
+g = Github(login_or_token=os.getenv("GITHUB_API_KEY"))
+
+
+def fetch_github_markdown_content(repo_owner, repo_name, file_path):
+    api_url = (
+        f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_path}"
+    )
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        data = response.json()
+        content = data.get("content")
+        if content:
+            # Base64-decode the content
+            markdown_content = base64.b64decode(content).decode("utf-8")
+            return markdown_content
+    else:
+        print(f"Failed to fetch content. Error: {response.text}")
+
+    return None
 
 
 @app.route("/")
 def index():
-    body = request.args.to_dict()
-    person_profile = dict()
-    person_profile["workExperience"] = []
-    person_profile["education"] = []
+    # Access github api and scrap a content from a markdown of the nextjs docs.
 
-    result = ""
+    # Example usage
+    repo_owner = "vercel"
+    repo_name = "next.js"
+    file_path = "docs/getting-started.md"
 
-    for key in body:
-        if "job" in key:
-            jobIndex = int(key.split("-")[0].replace("job", ""))
-            jobKey = key.split("-")[1]
-            try:
-                person_profile["workExperience"][jobIndex - 1][jobKey] = body[key]
-            except:
-                person_profile["workExperience"].insert(jobIndex, {jobKey: body[key]})
+    markdown_content = fetch_github_markdown_content(repo_owner, repo_name, file_path)
 
-        elif "education" in key:
-            jobIndex = int(key.split("-")[0].replace("education", ""))
-            jobKey = key.split("-")[1]
-            try:
-                person_profile["education"][jobIndex - 1][jobKey] = body[key]
-            except:
-                person_profile["education"].insert(jobIndex, {jobKey: body[key]})
-
-        else:
-            person_profile[key] = request.args.getlist(key)
-
-    if len(body.values()) > 0:
-        response = openai.Completion.create(
-            model="text-curie-001",
-            prompt=f"Generate a cover letter for me in first person. Here is some profile information about myself and the company as an object: {person_profile}. Use each value and their respective keys from the provided object as the description for the context of the cover letter.",
-            max_tokens=1000,
-            temperature=0.75,
-        )
-        result = response.choices[0].text
-
-    return render_template("index.html", result=result)
+    if markdown_content:
+        # Process and scrape the content as per your requirements
+        # You can use a Markdown parser library like 'markdown-it-py' or 'mistune' here
+        # For demonstration purposes, let's just print the content
+        print(markdown_content)
+    return render_template(
+        "index.html",
+    )
