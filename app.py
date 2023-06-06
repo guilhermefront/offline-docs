@@ -30,6 +30,9 @@ def fetch_github_markdown_content(repo_owner, repo_name, file_path):
     return None
 
 
+# make it so you can grab everything from nextjs
+
+
 @app.route("/")
 def index():
     # Access github api and scrap a content from a markdown of the nextjs docs.
