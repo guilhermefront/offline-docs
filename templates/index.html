@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-  yeah
+  {% for category in categories %}
+    Category: {{ category.name }}
+    {% for product in category.products %}- {{ product.name }}{% endfor %}
+  {% endfor %}
 {% endblock content %}
