@@ -32,6 +32,8 @@ def fetch_github_markdown_content(repo_owner, repo_name, file_path):
 
 # make it so you can grab everything from nextjs / separate in folders, start a sidebar (non designed for now, but with children folders that you can navigate through each topic)
 
+# then repeat the process with other projects
+
 
 @app.route("/")
 def index():
